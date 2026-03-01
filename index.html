@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KmaleOn - Diseño Estratégico</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --morado-principal: #6d28d9;
+        --morado-oscuro: #4c1d95;
+        --morado-claro: #f5f3ff;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .text-purple-primary {
+        color: var(--morado-principal);
+      }
+      .bg-purple-primary {
+        background-color: var(--morado-principal);
+      }
+      .border-purple-primary {
+        border-color: var(--morado-principal);
+      }
+
+      .nav-scrolled {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        padding: 0.75rem 0;
+      }
+
+      .btn-primary {
+        background-color: var(--morado-principal);
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--morado-oscuro);
+        transform: translateY(-2px);
+      }
+
+      /* Estilos para quitar gradientes de Tailwind si se usaran por error */
+      .no-gradient {
+        background-image: none !important;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .custom-shadow {
+        box-shadow: 0 20px 25px -5px rgba(109, 40, 217, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <!-- Navegación -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <div class="flex items-center">
+          <img
+            src="logo.png"
+            alt="KmaleOn Logo"
+            class="h-10 md:h-12 object-contain"
+            onerror="
+              this.src = 'https://via.placeholder.com/150x50?text=KmaleOn'
+            "
+          />
+        </div>
+        <div class="hidden md:flex space-x-8 font-semibold">
+          <a href="#about" class="hover:text-purple-primary transition-colors"
+            >Sobre mí</a
+          >
+          <a
+            href="#services"
+            class="hover:text-purple-primary transition-colors"
+            >Servicios</a
+          >
+          <a href="#work" class="hover:text-purple-primary transition-colors"
+            >Proyectos</a
+          >
+        </div>
+        <a
+          href="#contact"
+          class="btn-primary text-white px-6 py-2.5 rounded-full font-bold shadow-md"
+        >
+          Empezar Proyecto
+        </a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-white"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 relative flex flex-col md:flex-row items-center"
+      >
+        <div class="md:w-3/5">
+          <span
+            class="inline-block py-1 px-4 bg-purple-100 text-purple-700 rounded-full text-sm font-bold mb-6 uppercase tracking-wider"
+          >
+            Estrategia & Diseño
+          </span>
+          <h1 class="text-5xl md:text-7xl font-black leading-tight mb-8">
+            Diseño que <span class="text-purple-primary">vende</span>, marcas
+            que evolucionan.
+          </h1>
+          <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl">
+            En KmaleOn transformamos la identidad de tu negocio en una
+            herramienta de conversión sólida y profesional. Sin distracciones,
+            solo resultados.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
+          >
+            <a href="#services"
+              ><button
+                class="btn-primary text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center"
+              >
+                Nuestros servicios
+                <i class="fas fa-arrow-right ml-2"></i></button
+            ></a>
+            <a href="https://www.behance.net/KEYWOOD" target="_blank">
+              <button
+                class="border-2 border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all"
+              >
+                Ver Portafolio
+              </button></a
+            >
+          </div>
+        </div>
+        <div class="hidden md:block md:w-2/5">
+          <!-- Espacio para ilustración o elemento visual -->
+          <div
+            class="w-full h-96 bg-purple-50 rounded-3xl flex items-center justify-center"
+          >
+            <i
+              class="fas fa-rocket text-purple-primary text-9xl opacity-80"
+            ></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-12 border-y border-slate-100 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <p
+          class="text-center text-slate-400 font-bold mb-8 text-xs uppercase tracking-[0.2em]"
+        >
+          Empresas que confían en KmaleOn
+        </p>
+        <div
+          class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-40 grayscale"
+        >
+          <span class="text-xl font-black italic">ANDAMIOS DOMINICANOS</span>
+          <span class="text-xl font-black italic">FH DISEÑOS</span>
+          <span class="text-xl font-black italic">CLANDESTINO RACING</span>
+          <span class="text-xl font-black italic">SPA PIEL DE ESMERALDA</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div class="relative group">
+            <div
+              class="aspect-[3/4] bg-purple-primary rounded-3xl rotate-3 absolute inset-0 opacity-10"
+            ></div>
+            <img
+              src="Gemini_Generated_Image_6xtery6xtery6xte.png"
+              alt="Diseñador Profesional"
+              class="relative z-10 w-full h-auto object-cover rounded-3xl shadow-2xl transition-transform duration-500 hover:rotate-0 -rotate-2"
+              onerror="
+                this.src = 'https://via.placeholder.com/600x800?text=Tu+Foto'
+              "
+            />
+          </div>
+          <div>
+            <h2 class="text-4xl font-black mb-6">
+              La esencia de la <br /><span class="text-purple-primary"
+                >adaptación estratégica.</span
+              >
+            </h2>
+            <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+              "Hola, soy Keysel Harewood, estratega visual y director de mi
+              propio estudio de diseño." Mi enfoque va más allá de la creación
+              de un logo; construyo ecosistemas visuales que impulsan
+              resultados.
+            </p>
+            <div class="space-y-4 mb-8">
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                <span class="font-bold text-slate-700"
+                  >Branding Estratégico: Identidades visuales completas que
+                  generan autoridad.</span
+                >
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                <span class="font-bold text-slate-700"
+                  >Key Visuals para Eventos: Conceptos que definen la estética
+                  de grandes experiencias.</span
+                >
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                <span class="font-bold text-slate-700"
+                  >Diseño para Redes Sociales: Piezas optimizadas para
+                  conversión que transforman seguidores en clientes.</span
+                >
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+              <div
+                class="p-6 bg-slate-50 rounded-2xl border-l-4 border-purple-primary"
+              >
+                <p class="text-3xl font-black text-purple-primary">+5 años</p>
+                <p class="text-xs font-bold text-slate-500 uppercase">
+                  Experiencia
+                </p>
+              </div>
+              <div
+                class="p-6 bg-slate-50 rounded-2xl border-l-4 border-purple-primary"
+              >
+                <p class="text-3xl font-black text-purple-primary">100%</p>
+                <p class="text-xs font-bold text-slate-500 uppercase">
+                  Compromiso
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-24 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-4xl font-black mb-4">Servicios de Alto Impacto</h2>
+          <p class="text-slate-600 font-medium italic">
+            "Si no vende, no es diseño estratégico".
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Servicio 1 -->
+          <div
+            class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group"
+          >
+            <div
+              class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-primary transition-colors"
+            >
+              <i
+                class="fas fa-palette text-purple-primary text-2xl group-hover:text-white"
+              ></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Branding Profesional</h3>
+            <p class="text-slate-500 mb-8 text-sm leading-relaxed">
+              Sistemas visuales diseñados para posicionar tu marca como líder en
+              su sector desde el primer día.
+            </p>
+            <div
+              class="pt-6 border-t border-slate-50 flex justify-between items-center"
+            >
+              <span
+                class="text-xs font-bold text-slate-400 uppercase tracking-widest"
+                >Inversión</span
+              >
+              <span class="text-purple-primary font-black">Desde $800</span>
+            </div>
+          </div>
+          <!-- Servicio 2 -->
+          <div
+            class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group"
+          >
+            <div
+              class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-primary transition-colors"
+            >
+              <i
+                class="fas fa-laptop-code text-purple-primary text-2xl group-hover:text-white"
+              ></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Web & UI/UX</h3>
+            <p class="text-slate-500 mb-8 text-sm leading-relaxed">
+              Interfaces limpias y optimizadas para guiar al usuario hacia la
+              compra de manera natural.
+            </p>
+            <div
+              class="pt-6 border-t border-slate-50 flex justify-between items-center"
+            >
+              <span
+                class="text-xs font-bold text-slate-400 uppercase tracking-widest"
+                >Inversión</span
+              >
+              <span class="text-purple-primary font-black">Desde $1,200</span>
+            </div>
+          </div>
+          <!-- Servicio 3 -->
+          <div
+            class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all border border-slate-100 group"
+          >
+            <div
+              class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-purple-primary transition-colors"
+            >
+              <i
+                class="fas fa-bullseye text-purple-primary text-2xl group-hover:text-white"
+              ></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Consultoría</h3>
+            <p class="text-slate-500 mb-8 text-sm leading-relaxed">
+              Analizamos tu presencia actual y trazamos un plan de acción para
+              corregir fugas de ventas.
+            </p>
+            <div
+              class="pt-6 border-t border-slate-50 flex justify-between items-center"
+            >
+              <span
+                class="text-xs font-bold text-slate-400 uppercase tracking-widest"
+                >Inversión</span
+              >
+              <span class="text-purple-primary font-black">Consultar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work/Portfolio -->
+    <section id="work" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4"
+        >
+          <h2 class="text-4xl font-black italic">Proyectos Recientes</h2>
+          <a
+            href="https://www.behance.net/keywood"
+            target="_blank"
+            class="text-purple-primary font-bold hover:underline"
+            >Ver todo el portafolio
+            <i class="fas fa-chevron-right text-xs ml-1"></i
+          ></a>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div class="project-card group cursor-pointer">
+            <div
+              class="overflow-hidden rounded-2xl mb-4 bg-slate-200 aspect-[4/5] relative"
+            >
+              <img
+                src="Mesa de trabajo 7.jpg"
+                alt="Proyecto 1"
+                class="w-full h-full object-cover transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-purple-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-8 text-center"
+              >
+                <p class="text-white font-bold leading-tight">
+                  Diseños para redes sociales de empresa de alquiler de andamios
+                  en República Dominicana.
+                </p>
+              </div>
+            </div>
+            <p
+              class="text-purple-primary text-xs font-bold uppercase tracking-widest mb-1"
+            >
+              Social media Desing
+            </p>
+            <h4 class="text-xl font-bold">Andamios Dominicanos</h4>
+          </div>
+          <!-- Project 2 -->
+          <div class="project-card group cursor-pointer">
+            <div
+              class="overflow-hidden rounded-2xl mb-4 bg-slate-200 aspect-[4/5] relative"
+            >
+              <img
+                src="piques logo.png"
+                alt="Proyecto 2"
+                class="w-full h-full object-cover transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-purple-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-8 text-center"
+              >
+                <p class="text-white font-bold leading-tight">
+                  Diseños para redes sociales de carreras 1/4 de milla
+                </p>
+              </div>
+            </div>
+            <p
+              class="text-purple-primary text-xs font-bold uppercase tracking-widest mb-1"
+            >
+              Key Visual (Flyer Evento)
+            </p>
+            <h4 class="text-xl font-bold">Primera Encerrona 2026</h4>
+          </div>
+          <!-- Project 3 -->
+          <div class="project-card group cursor-pointer">
+            <div
+              class="overflow-hidden rounded-2xl mb-4 bg-slate-200 aspect-[4/5] relative"
+            >
+              <img
+                src="Mesa de trabajo 3.png"
+                alt="Proyecto 3"
+                class="w-full h-full object-cover transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-purple-primary/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-8 text-center"
+              >
+                <p class="text-white font-bold leading-tight">
+                  Identidad visualpara marca de café artesanal.
+                </p>
+              </div>
+            </div>
+            <p
+              class="text-purple-primary text-xs font-bold uppercase tracking-widest mb-1"
+            >
+              Identidad Visual
+            </p>
+            <h4 class="text-xl font-bold">Mora & Grano</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div
+          class="bg-slate-900 rounded-[3rem] p-10 md:p-20 text-white flex flex-col md:flex-row gap-16 relative overflow-hidden"
+        >
+          <div class="md:w-1/2 relative z-10">
+            <img
+              src="logo.png"
+              alt="KmaleOn Logo"
+              class="h-10 mb-8"
+              onerror="this.style.display = 'none'"
+            />
+            <h2 class="text-4xl font-black mb-6 leading-tight">
+              Hablemos de tu próximo gran paso.
+            </h2>
+            <p class="text-slate-400 text-lg mb-10">
+              Cuéntame tu reto actual y te enviaré una propuesta estratégica
+              personalizada en menos de 24 horas.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-center space-x-4">
+                <div
+                  class="w-12 h-12 bg-purple-primary rounded-full flex items-center justify-center"
+                >
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <span class="text-lg font-bold"
+                  >keysel.harewood.15@gmail.com</span
+                >
+              </div>
+              <div class="flex space-x-4 mt-8">
+                <a
+                  href="https://www.instagram.com/kmaleonstudio.ve/"
+                  target="_blank"
+                  class="w-10 h-10 border border-slate-700 rounded-full flex items-center justify-center hover:bg-purple-primary transition-colors"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/keyselharewood/"
+                  target="_blank"
+                  class="w-10 h-10 border border-slate-700 rounded-full flex items-center justify-center hover:bg-purple-primary transition-colors"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a
+                  href="https://www.behance.net/keywood"
+                  target="_blank"
+                  class="w-10 h-10 border border-slate-700 rounded-full flex items-center justify-center hover:bg-purple-primary transition-colors"
+                  ><i class="fab fa-behance"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:w-1/2 relative z-10">
+            <form
+              action="https://formsubmit.co/keysel.harewood.15@gmail.com"
+              method="POST"
+              class="bg-white p-8 rounded-3xl text-slate-900 space-y-4 shadow-2xl"
+            >
+              <!-- opcionales: campos ocultos para asunto, redirección, etc. -->
+              <input type="hidden" name="_subject" value="Nuevo mensaje desde tu web" />
+              <input type="hidden" name="_captcha" value="false" />
+              <div>
+                <label
+                  class="block text-xs font-black uppercase text-slate-400 mb-2"
+                  >Nombre</label
+                >
+                <input
+                  type="text"
+                  name="name"
+                  class="w-full p-4 bg-slate-50 border border-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-primary"
+                  placeholder="Ej. Juan Pérez"
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-xs font-black uppercase text-slate-400 mb-2"
+                  >Correo</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  class="w-full p-4 bg-slate-50 border border-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-primary"
+                  placeholder="juan@empresa.com"
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-xs font-black uppercase text-slate-400 mb-2"
+                  >Mensaje</label
+                >
+                <textarea
+                  class="w-full p-4 bg-slate-50 border border-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-primary h-32"
+                  placeholder="Háblame de tu proyecto..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full btn-primary text-white font-black py-4 rounded-xl uppercase tracking-widest shadow-lg shadow-purple-900/20"
+              >
+                Enviar Solicitud
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-white border-t border-slate-100">
+      <div
+        class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6"
+      >
+        <p class="text-slate-400 text-sm font-medium">© 2024 KmaleOn Studio.</p>
+        <div
+          class="flex space-x-6 text-xs font-black uppercase tracking-[0.2em] text-slate-400"
+        >
+          <a href="#" class="hover:text-purple-primary transition-colors"
+            >Privacidad</a
+          >
+          <a href="#" class="hover:text-purple-primary transition-colors"
+            >Cookies</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Efecto de Navegación al hacer scroll
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add("nav-scrolled");
+        } else {
+          navbar.classList.remove("nav-scrolled");
+        }
+      });
+
+      // Simulación de envío de formulario
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const btn = this.querySelector("button");
+        const originalText = btn.innerText;
+        btn.innerText = "Enviando...";
+        btn.disabled = true;
+
+        setTimeout(() => {
+          btn.innerText = "¡Mensaje Enviado!";
+          btn.style.backgroundColor = "#10B981"; // Verde de éxito
+          this.reset();
+          setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.backgroundColor = "";
+            btn.disabled = false;
+          }, 3000);
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>
