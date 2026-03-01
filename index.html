@@ -64,18 +64,26 @@
   </head>
   <body class="bg-slate-50 text-slate-900">
     <!-- Navegación -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6">
-      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <nav
+      id="navbar"
+      class="fixed w-full z-50 transition-all duration-300 py-4 bg-white/80 backdrop-blur"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center"
+      >
+        <!-- Logo -->
         <div class="flex items-center">
           <img
             src="logo.png"
             alt="KmaleOn Logo"
-            class="h-10 md:h-12 object-contain"
+            class="h-8 sm:h-10 md:h-12 object-contain"
             onerror="
               this.src = 'https://via.placeholder.com/150x50?text=KmaleOn'
             "
           />
         </div>
+
+        <!-- Links desktop -->
         <div class="hidden md:flex space-x-8 font-semibold">
           <a href="#about" class="hover:text-purple-primary transition-colors"
             >Sobre mí</a
@@ -89,12 +97,47 @@
             >Proyectos</a
           >
         </div>
+
+        <!-- Botón CTA desktop -->
         <a
           href="#contact"
-          class="btn-primary text-white px-6 py-2.5 rounded-full font-bold shadow-md"
+          class="hidden md:inline-block btn-primary text-white px-5 py-2.5 rounded-full font-bold shadow-md text-sm lg:text-base"
         >
           Empezar Proyecto
         </a>
+
+        <!-- Botón hamburguesa móvil -->
+        <button
+          id="menu-btn"
+          class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-slate-700 hover:bg-slate-100"
+        >
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+
+      <!-- Menú móvil -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden border-t border-slate-100 bg-white"
+      >
+        <div class="px-4 py-3 space-y-2 font-semibold">
+          <a href="#about" class="block py-2" onclick="toggleMenu()"
+            >Sobre mí</a
+          >
+          <a href="#services" class="block py-2" onclick="toggleMenu()"
+            >Servicios</a
+          >
+          <a href="#work" class="block py-2" onclick="toggleMenu()"
+            >Proyectos</a
+          >
+          <a
+            href="#contact"
+            class="block mt-2 btn-primary text-center text-white px-4 py-2 rounded-full font-bold"
+            onclick="toggleMenu()"
+          >
+            Empezar Proyecto
+          </a>
+        </div>
       </div>
     </nav>
 
@@ -491,13 +534,9 @@
 
           <div class="md:w-1/2 relative z-10">
             <form
-              action="https://formsubmit.co/keysel.harewood.15@gmail.com"
-              method="POST"
+              id="whatsapp-form"
               class="bg-white p-8 rounded-3xl text-slate-900 space-y-4 shadow-2xl"
             >
-              <!-- opcionales: campos ocultos para asunto, redirección, etc. -->
-              <input type="hidden" name="_subject" value="Nuevo mensaje desde tu web" />
-              <input type="hidden" name="_captcha" value="false" />
               <div>
                 <label
                   class="block text-xs font-black uppercase text-slate-400 mb-2"
@@ -506,8 +545,10 @@
                 <input
                   type="text"
                   name="name"
+                  id="name"
                   class="w-full p-4 bg-slate-50 border border-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-primary"
                   placeholder="Ej. Juan Pérez"
+                  required
                 />
               </div>
               <div>
@@ -518,8 +559,10 @@
                 <input
                   type="email"
                   name="email"
+                  id="email"
                   class="w-full p-4 bg-slate-50 border border-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-primary"
                   placeholder="juan@empresa.com"
+                  required
                 />
               </div>
               <div>
@@ -528,15 +571,19 @@
                   >Mensaje</label
                 >
                 <textarea
+                  name="message"
+                  id="message"
                   class="w-full p-4 bg-slate-50 border border-slate-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-primary h-32"
                   placeholder="Háblame de tu proyecto..."
+                  required
                 ></textarea>
               </div>
               <button
                 type="submit"
                 class="w-full btn-primary text-white font-black py-4 rounded-xl uppercase tracking-widest shadow-lg shadow-purple-900/20"
+                id="whatsapp-btn"
               >
-                Enviar Solicitud
+                Enviar por WhatsApp
               </button>
             </form>
           </div>
@@ -574,25 +621,59 @@
         }
       });
 
-      // Simulación de envío de formulario
-      document.querySelector("form").addEventListener("submit", function (e) {
-        e.preventDefault();
-        const btn = this.querySelector("button");
-        const originalText = btn.innerText;
-        btn.innerText = "Enviando...";
-        btn.disabled = true;
+      // Menú móvil
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
 
-        setTimeout(() => {
-          btn.innerText = "¡Mensaje Enviado!";
-          btn.style.backgroundColor = "#10B981"; // Verde de éxito
-          this.reset();
+      function toggleMenu() {
+        mobileMenu.classList.toggle("hidden");
+      }
+
+      if (menuBtn) {
+        menuBtn.addEventListener("click", toggleMenu);
+      }
+
+      // Formulario a WhatsApp
+      const form = document.getElementById("whatsapp-form");
+      const btn = document.getElementById("whatsapp-btn");
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const message = document.getElementById("message").value.trim();
+
+          if (!name || !email || !message) {
+            alert("Por favor completa todos los campos.");
+            return;
+          }
+
+          // PON AQUÍ TU NÚMERO EN FORMATO INTERNACIONAL SIN +
+          const phoneNumber = "+584262294171"; // Ej: 584141234567
+
+          let text = `Hola KmaleOn 👋%0A%0A`;
+          text += `Mi nombre es: ${encodeURIComponent(name)}%0A`;
+          text += `Mi correo es: ${encodeURIComponent(email)}%0A%0A`;
+          text += `Quiero contarte sobre mi proyecto:%0A${encodeURIComponent(
+            message,
+          )}`;
+
+          const url = `https://wa.me/${phoneNumber}?text=${text}`; // formato oficial de WhatsApp[web:25][web:28]
+
+          btn.innerText = "Redirigiendo a WhatsApp...";
+          btn.disabled = true;
+
+          window.open(url, "_blank");
+
           setTimeout(() => {
-            btn.innerText = originalText;
-            btn.style.backgroundColor = "";
+            btn.innerText = "Enviar por WhatsApp";
             btn.disabled = false;
-          }, 3000);
-        }, 1500);
-      });
+            form.reset();
+          }, 2000);
+        });
+      }
     </script>
   </body>
 </html>
